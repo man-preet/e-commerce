@@ -9,15 +9,20 @@ const Products = () => {
 
   const location=useLocation();
 
+  console.log(location);
   const queryParams=new URLSearchParams(location.search);
   const selectedCategory=queryParams.get('category');
+  
   
 
   console.log(selectedCategory);
 
 
-  const filteredProducts=selectedCategory?Product.filter((product)=>product.category===selectedCategory):Product;
-  console.log(filteredProducts);
+
+  const filteredProducts = selectedCategory 
+  ? Product.filter((product) => product.category.toLowerCase() === selectedCategory.toLowerCase()) 
+  : Product;
+
 
   return (
         <>
@@ -28,9 +33,8 @@ const Products = () => {
               </h1>
 
 
-              <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
-                
-                      <ProductCard products={filteredProducts}/>
+              <div>
+                <ProductCard products={filteredProducts}/>
               </div>
             </div>
             <Footer/>

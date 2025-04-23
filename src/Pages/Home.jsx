@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from '../Components/Navigation/Navbar.jsx'
 import Footer from '../Components/Navigation/Footer'
-import './Home.css';
 import CategoryCard from '../Components/UI/CategoryCard.jsx';
 
 
@@ -28,6 +27,7 @@ const Home = () => {
             <div className="category">
               <CategoryCard/>
             </div>
+
           </div>
 
 

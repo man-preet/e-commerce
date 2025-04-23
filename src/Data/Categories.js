@@ -1,17 +1,17 @@
 const Categories=[
     {
         id:1,
-        name:"Clothes",
+        name:"clothes",
         image:"/Assets/Images/Clothes.jpg"
     },
     {
         id:2,
-        name:"Footwear",
+        name:"footwear",
         image:"/Assets/Images/Footwear.jpg"
     },
     {
         id:3,
-        name:"Bags",
+        name:"bags",
         image:"/Assets/Images/Bags.jpg"
     },
     {

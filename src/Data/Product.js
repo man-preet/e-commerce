@@ -63,7 +63,7 @@ const Product=[
         name:"Bata Comfit Women's DIAMONTE E Sandals (6618142_BEIGE_6 UK)",
         brand:"Bata comfit",
         price:714,
-        category:"fottwear",
+        category:"footwear",
         image:"/Assets/Images/footwear3.jpg"
     },
     {
@@ -87,7 +87,7 @@ const Product=[
         name:"ADISA SL5038 women girls sling bag",
         brand:"ADISA",
         price:597,
-        category:"bag",
+        category:"bags",
         image:"https://m.media-amazon.com/images/I/91Kb+ZVxMdL._SY695_.jpg"
 
     },
@@ -96,7 +96,7 @@ const Product=[
         name:"ADISA Women's Girls Quilted Cross Body Sling Bag with Gold Chain (SL5136)",
         brand:"ADISA",
         price:697,
-        category:"bag",
+        category:"bags",
         image:"https://m.media-amazon.com/images/I/81mAaCC+-zL._SY695_.jpg"
         
     },
@@ -105,7 +105,7 @@ const Product=[
         name:"ADISA Women's Girls Cross Body Sling Bag with Pouch",
         brand:"ADISA",
         price:497,
-        category:"bag",
+        category:"bags",
         image:"https://m.media-amazon.com/images/I/51VyTkeXgLL._SY695_.jpg"
         
     },
@@ -114,7 +114,7 @@ const Product=[
         name:"ADISA Women's Girls Party Sling Bag Crossbody",
         brand:"ADISA",
         price:398,
-        category:"bag",
+        category:"bags",
         image:"https://m.media-amazon.com/images/I/51Flz6NBfqL._SX695_.jpg"
         
     },
@@ -123,7 +123,7 @@ const Product=[
         name:"ADISA women girls V-flap crossbody sling bag with gold chain ",
         brand:"ADISA",
         price:497,
-        category:"bag",
+        category:"bags",
         image:"https://m.media-amazon.com/images/I/61DZ1ywzFgL._SY695_.jpg"
         
     },
@@ -172,7 +172,7 @@ const Product=[
         name:"Artvibes This is us Decorative Wall Art MDF Wooden Wall Hanger for Living Room | Bedroom | Home Decor | Office | Gift | Hanging Ornaments for Decoration | Modern Art (WH_6513N)",
         brand:"Artvibes",
         price:229,
-        category:"HomeDecor",
+        category:"Home Decor",
         image:"https://m.media-amazon.com/images/I/71SRCnsh9nL._SX679_.jpg"
     },
     {
@@ -180,7 +180,7 @@ const Product=[
         name:"SPHINX Ceramic Donut Vase, Pampas Grass Flower Vase, Home Decor Centrepiece for Office or Gifts - (White, 6 Inch)",
         brand:"SPHINX",
         price:169,
-        category:"HomeDecor",
+        category:"Home Decor",
         image:"https://m.media-amazon.com/images/I/813Kzy7rfqL._SX679_.jpg"
     },
     {
@@ -188,7 +188,7 @@ const Product=[
         name:"Dekorly Artificial Potted Plants, 8 Pack Artificial Plastic Eucalyptus Plants Small Indoor Potted Houseplants, Small Faux Plants for Home Decor Bathroom Office Farmhouse (Set 0F 8)",
         brand:"Dekorly",
         price:270,
-        category:"HomeDecor",
+        category:"Home Decor",
         image:"https://m.media-amazon.com/images/I/8139T8YbdkL._SX679_.jpg"
     },
     {
@@ -196,7 +196,7 @@ const Product=[
         name:"Global Grabbers New 25 Centimetre Meditating Sitting Buddha Statue showpiece Idol Home Decor Items for Living Room and Gifts (1, Orange Black)",
         brand:"Global Grabbers Store",
         price:379,
-        category:"HomeDecor",
+        category:"Home Decor",
         image:"https://m.media-amazon.com/images/I/71S9dg5+wbL._SX679_.jpg"
     },
     {
@@ -204,7 +204,7 @@ const Product=[
         name:"Artvibes Home Decorative Wall Art MDF Wooden Wall Hanger for Living room | Bedroom | Gifts | Wall Hangings for Decoration | Modern Decor Items | Artworks Canvas Painting (WH_6603N), Set of 6",
         brand:"Artvibes",
         price:229,
-        category:"HomeDecor",
+        category:"Home Decor",
         image:"https://m.media-amazon.com/images/I/71vBYh7o5lL._SX679_.jpg"
     },
     {
@@ -212,7 +212,7 @@ const Product=[
         name:"URBANMAC Makeup Brush Set 8PCS Mini With Storage (Ligth_peach)",
         brand:"URBANMAC store",
         price:199,
-        category:"MakeOver",
+        category:"Make Over",
         image:"https://m.media-amazon.com/images/I/61yL8+F1KvL._SX679_.jpg"
     },
     {
@@ -220,7 +220,7 @@ const Product=[
         name:"Roll over image to zoom in Maybelline New York Matte Lipstick, Intense Colour, Keeps Lips Moisturised, 660 Touch of Spice, Color Sensational Creamy Matte Lipstick, 3.9g",
         brand:"Maybelline",
         price:207,
-        category:"MakeOver",
+        category:"Make Over",
         image:"https://m.media-amazon.com/images/I/51zzJw-JgQL._SX679_.jpg"
     },
     {
@@ -228,7 +228,7 @@ const Product=[
         name:"Swiss Beauty Ultimate 9 Pigmented Colors Eyeshadow Palette Long Wearing And Easily Blendable Eye Makeup Palette Matte, Shimmery And Metallic Finish - Multicolor-02, 6G",
         brand:"Swiss Beauty",
         price:187,
-        category:"MakeOver",
+        category:"Make Over",
         image:"https://m.media-amazon.com/images/I/616kViYpgpL._SX679_.jpg"
     },
     {
@@ -236,7 +236,7 @@ const Product=[
         name:"Lakme Lumi skin Dewy Rose 30g",
         brand:"Lakme",
         price:230,
-        category:"MakeOver",
+        category:"Make Over",
         image:"https://m.media-amazon.com/images/I/51+kdN8yrSL._SX679_.jpg"
     },
     {
@@ -244,7 +244,7 @@ const Product=[
         name:"MARS Lip Mist for Women (4.5 ml) (01-Peachy Drip) | Dual Function | Buildable Color | Glossy Finish | Long-Lasting | Hydration | Light-Weight Formula | Non-Patchy Reapplication",
         brand:"MARS",
         price:278,
-        category:"MakeOver",
+        category:"Make Over",
         image:"https://m.media-amazon.com/images/I/61QYK7MgQYL._SX679_.jpg"
     },
     {

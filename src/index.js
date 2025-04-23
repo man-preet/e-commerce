@@ -7,7 +7,9 @@ import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import Home from "./Pages/Home.jsx";
 import Products from './Pages/Products.jsx';
 import ProductDetails from './Pages/ProductDetails';
-
+import Address from './Pages/Address.jsx';
+import PageNotFound from './Pages/PageNotFound.jsx';
+import RazorPayPayment from './Pages/RazorPayPayment.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,7 +18,10 @@ root.render(
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path='/products' element={<Products/>}/>
-        <Route path='/productdetails' element={<ProductDetails/>}/>
+        <Route path='/products/:id' element={<ProductDetails/>}/>
+        <Route path='/address' element={<Address/>}/>
+        <Route path='/page-not-found' element={<PageNotFound/>}/>
+        <Route path='/payment' element={<RazorPayPayment/>}/>
       </Routes>
     </Router>
   </React.StrictMode>

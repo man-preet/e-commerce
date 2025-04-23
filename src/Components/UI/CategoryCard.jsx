@@ -7,6 +7,8 @@ const CategoryCard = () => {
   const navigate=useNavigate();
 
   const handleCategoryClick=(CategoryName)=>{
+    console.log(encodeURIComponent(CategoryName));
+    
     navigate(`/products?category=${encodeURIComponent(CategoryName)}`)
   }
 
@@ -23,4 +25,5 @@ const CategoryCard = () => {
     </>
   )
 }
+
 export default CategoryCard
