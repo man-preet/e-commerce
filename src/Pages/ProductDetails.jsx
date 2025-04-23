@@ -25,7 +25,7 @@ useEffect(() => {
     }
 
   const handleBuyNow=()=>{
-    navigate("/address");
+    navigate("/address",{state:{price:product.price,productName:product.name}});
 
   }
 
