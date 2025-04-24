@@ -10,6 +10,8 @@ import ProductDetails from './Pages/ProductDetails';
 import Address from './Pages/Address.jsx';
 import PageNotFound from './Pages/PageNotFound.jsx';
 import RazorPayPayment from './Pages/RazorPayPayment.jsx';
+import Cart from './Pages/Cart.jsx';
+import AllProducts from './Pages/AllProducts.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +24,8 @@ root.render(
         <Route path='/address' element={<Address/>}/>
         <Route path='/page-not-found' element={<PageNotFound/>}/>
         <Route path='/payment' element={<RazorPayPayment/>}/>
+        <Route path='/add-to-cart' element={<Cart/>}/>
+        <Route path='/all-products' element={<AllProducts/>}/>
       </Routes>
     </Router>
   </React.StrictMode>

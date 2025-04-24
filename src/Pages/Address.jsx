@@ -2,13 +2,31 @@ import React from 'react'
 import RazorPayPayment from './RazorPayPayment'
 // import { useNavigate } from 'react-router'
 
-import { useLocation } from 'react-router';
+import { useLocation,useNavigate } from 'react-router';
 const Address = () => {
+
+  const navigate=useNavigate();
 
   const location=  useLocation();
   console.log(location.state);
-  
-  const {price,productName}=location.state || {};
+
+  let {price,productName}=location.state || {};
+
+  if(!price || !productName)
+    {
+      const storedData=localStorage.getItem("orederData");
+      if(storedData)
+      {
+        const parsedData=JSON.parse(storedData);
+        price=parsedData.price;
+        productName=parsedData.productName;
+      }
+      else{
+        navigate("/");
+        return null;
+
+      }
+    }
 
   return (
     <>

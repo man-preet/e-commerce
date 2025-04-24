@@ -12,7 +12,7 @@ const ProductDetails = () => {
 
   const product = Product.find((p) => p.id.toString() === id);
 
-useEffect(() => {
+  useEffect(() => {
     if (!product) {
       navigate("/page-not-found"); 
     }
@@ -24,8 +24,38 @@ useEffect(() => {
 
     }
 
+    const handleAddToCart = () =>{
+      // const orderData={price:product.price,productName:product.name,image:product.image,brand:product.brand,category:product.category};
+      // localStorage.setItem("orderData",JSON.stringify(orderData));
+
+      const existingCart=JSON.parse(localStorage.getItem("cartItems")) || [];
+
+      const productToAdd={
+        id:product.id,
+        price:product.price,
+        productName:product.name,
+        image:product.image,
+        brand:product.brand,
+        category:product.category
+      };
+
+      const isAlreadyinCart=existingCart.find(item=>item.id===productToAdd.id);
+      if(!isAlreadyinCart){
+        existingCart.push(productToAdd);
+        localStorage.setItem("cartItems", JSON.stringify(existingCart));
+        navigate('/add-to-cart')
+      }
+      else{
+        alert("This Item is already added to cart");
+        
+      }
+    }
+
   const handleBuyNow=()=>{
-    navigate("/address",{state:{price:product.price,productName:product.name}});
+    const orderData={price:product.price,productName:product.name,image:product.image,brand:product.brand,category:product.category};
+    localStorage.setItem("orderData",JSON.stringify(orderData));
+
+    navigate("/address",{state:orderData});
 
   }
 
@@ -51,7 +81,8 @@ useEffect(() => {
             >
               Buy Now
             </button>
-            <button className="block rounded-3xl px-18 py-2 bg-yellow-400 font-medium cursor-pointer">
+            <button className="block rounded-3xl px-18 py-2 bg-yellow-400 font-medium cursor-pointer"
+              onClick={()=>handleAddToCart()}>
               Add to Cart
             </button>
           </div>
