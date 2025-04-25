@@ -12,6 +12,8 @@ import PageNotFound from './Pages/PageNotFound.jsx';
 import RazorPayPayment from './Pages/RazorPayPayment.jsx';
 import Cart from './Pages/Cart.jsx';
 import AllProducts from './Pages/AllProducts.jsx';
+import AboutUs from './Pages/AboutUs.jsx';
+import ContactUs from './Pages/ContactUs.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,6 +28,8 @@ root.render(
         <Route path='/payment' element={<RazorPayPayment/>}/>
         <Route path='/add-to-cart' element={<Cart/>}/>
         <Route path='/all-products' element={<AllProducts/>}/>
+        <Route path='/about' element={<AboutUs/>}/>
+        <Route path='/contactus' element={<ContactUs/>}/>
       </Routes>
     </Router>
   </React.StrictMode>
