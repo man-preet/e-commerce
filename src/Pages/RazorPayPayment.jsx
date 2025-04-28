@@ -1,10 +1,15 @@
 import React from 'react'
-import { useNavigate } from 'react-router';
+import { useNavigate ,useLocation} from 'react-router';
 
 
 const RazorPayPayment = (props) => {
 
     const navigate=useNavigate();
+    const location=useLocation();
+
+
+    let {price,productName,category,brand,image}=location.state || {};
+
 
     const handlePayment = () => {
         const options = {
@@ -17,7 +22,20 @@ const RazorPayPayment = (props) => {
           handler: function (response) {
             // alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
             console.log(response.razorpay_payment_id);
-            navigate("/");
+            navigate("/orders",{
+              state:{
+                paymentStatus:"success",
+                orderData:{
+                  productName,
+                  price,
+                  category,
+                  brand,
+                  image,
+                  payment_id:response.razorpay_payment_id,
+                }
+              }
+            }
+            );
 
           },
           method: {
@@ -51,7 +69,7 @@ const RazorPayPayment = (props) => {
         <div className='RazorPayPayment'>
             {/* <button handlePayment={()=>handlePayment()} onClick={props.handle}>{props.children}</button> */}
 
-            <button onClick={()=>handlePayment()}>{props.children}</button>
+            <button onClick={()=>handlePayment()} className="mt-4 px-6 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600">{props.children}</button>
         </div>    
     </>
   )

@@ -3,15 +3,28 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import Navbar from '../Components/Navigation/Navbar';
 import Footer from '../Components/Navigation/Footer';
+import { auth } from '../Firebase/Firebase';
 
 const Cart = () => {
   const [cartItems,setCartItems]=useState([]);
   const [total,setTotal]=useState(0);
   const navigate=useNavigate();
   
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(()=>{
-    const storedItems=JSON.parse(localStorage.getItem("cartItems")) ||[];
+
+    const user=auth.currentUser;
+
+
+    if(!user)
+      {
+        alert("Please SignIn to view your cart items");
+        navigate("/");
+        return;
+
+      }
+    const userCartKey=`cart_${user.uid}`;
+    const storedItems=JSON.parse(localStorage.getItem(userCartKey)) ||[];
     setCartItems(storedItems);
     console.log(storedItems);
 
@@ -20,14 +33,20 @@ const Cart = () => {
     setTotal(totalAmount);
     console.log(totalAmount);
 
-  },[]);
+  },[navigate]);
 
   const handleRemove = (id) =>{
+    const user=auth.currentUser;
+    if(!user)
+      {
+        return;
+      }
+      const userCartKey=`cart_${user.uid}`
     const updatedCart=cartItems.filter((items)=>items.id !== id);
     setCartItems(updatedCart);
     console.log(updatedCart);
 
-    localStorage.setItem("cartItems", JSON.stringify(updatedCart));
+    localStorage.setItem(userCartKey, JSON.stringify(updatedCart));
 
 
 

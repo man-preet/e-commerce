@@ -3,12 +3,11 @@ import Product from "../Data/Product";
 import Navbar from "../Components/Navigation/Navbar";
 import Footer from "../Components/Navigation/Footer";
 import { useParams,useNavigate } from "react-router";
+import { auth } from "../Firebase/Firebase"; 
 
 const ProductDetails = () => {
   const { id } = useParams();
   const navigate=useNavigate();
-
-
 
   const product = Product.find((p) => p.id.toString() === id);
 
@@ -24,11 +23,25 @@ const ProductDetails = () => {
 
     }
 
+
+
     const handleAddToCart = () =>{
       // const orderData={price:product.price,productName:product.name,image:product.image,brand:product.brand,category:product.category};
       // localStorage.setItem("orderData",JSON.stringify(orderData));
 
-      const existingCart=JSON.parse(localStorage.getItem("cartItems")) || [];
+
+      const user=auth.currentUser;
+      if(!user)
+        {
+          alert("Please Sign in to add products to cart");
+          navigate("/");
+          return;
+
+        }
+
+        const userCartKey=`cart_${user.uid}`;
+
+      const existingCart=JSON.parse(localStorage.getItem(userCartKey)) || [];
 
       const productToAdd={
         id:product.id,
@@ -42,7 +55,7 @@ const ProductDetails = () => {
       const isAlreadyinCart=existingCart.find(item=>item.id===productToAdd.id);
       if(!isAlreadyinCart){
         existingCart.push(productToAdd);
-        localStorage.setItem("cartItems", JSON.stringify(existingCart));
+        localStorage.setItem(userCartKey, JSON.stringify(existingCart));
         navigate('/add-to-cart')
       }
       else{

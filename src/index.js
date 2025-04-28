@@ -14,13 +14,19 @@ import Cart from './Pages/Cart.jsx';
 import AllProducts from './Pages/AllProducts.jsx';
 import AboutUs from './Pages/AboutUs.jsx';
 import ContactUs from './Pages/ContactUs.jsx';
+import SignUp from './Pages/SignUp.jsx';
+import SignIn from './Pages/SignIn.jsx';
+import Order from './Pages/Order.jsx';
+import {AuthProvider} from './Context/AuthContext.jsx';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <AuthProvider>
     <Router>
       <Routes>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/home" element={<Home/>}/>
         <Route path='/products' element={<Products/>}/>
         <Route path='/products/:id' element={<ProductDetails/>}/>
         <Route path='/address' element={<Address/>}/>
@@ -30,8 +36,12 @@ root.render(
         <Route path='/all-products' element={<AllProducts/>}/>
         <Route path='/about' element={<AboutUs/>}/>
         <Route path='/contactus' element={<ContactUs/>}/>
+        <Route path='/signup' element={<SignUp/>}/>
+        <Route path='/' element={<SignIn/>}/>
+        <Route path='/orders' element={<Order/>}/>
       </Routes>
     </Router>
+    </AuthProvider>
   </React.StrictMode>
 );
 
