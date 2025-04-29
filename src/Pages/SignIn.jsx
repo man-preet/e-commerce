@@ -4,6 +4,8 @@ import {auth}from '../Firebase/Firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 
 
  const SignIn = () => {
@@ -61,7 +63,15 @@ import { Link } from 'react-router-dom';
         const userCredentials= await signInWithEmailAndPassword(auth,email,password);
         const user=userCredentials.user;
         console.log(user);
-        alert("LogedIn Successfully");
+
+        Swal.fire({
+          title: "Successfully Signed In",
+          icon: "success",
+          draggable: true,
+          showConfirmButton:false,
+          timer:1500
+        });
+
         navigate("/home");
         setSignInFormData({
           email:"",
@@ -73,17 +83,35 @@ import { Link } from 'react-router-dom';
       catch(e){
         if(e.code==="auth/user-not-found")
           {
-            alert("No User Found!");
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "No User Found!",
+              showConfirmButton:false,
+              timer:1500
+            });
           }
           else if(e.code === "auth/wrong-password")
             {
-              alert("Incorrect Password");
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Incorrect Password",
+                showConfirmButton:false,
+                timer:1500
+              });
 
             }
           
             else{
               console.log(e.message);
-              alert("Something went wrong, please try again later");
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong,Please try again",
+                showConfirmButton:false,
+                timer:1500
+              });
             }
       }
    }

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import Navbar from '../Components/Navigation/Navbar';
 import Footer from '../Components/Navigation/Footer';
 import { auth } from '../Firebase/Firebase';
+import Swal from 'sweetalert2';
 
 const Cart = () => {
   const [cartItems,setCartItems]=useState([]);
@@ -18,7 +19,7 @@ const Cart = () => {
 
     if(!user)
       {
-        alert("Please SignIn to view your cart items");
+        Swal.fire("Please Sign In to see your cart.")
         navigate("/");
         return;
 

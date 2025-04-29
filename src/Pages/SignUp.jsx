@@ -3,7 +3,8 @@ import db, {auth} from '../Firebase/Firebase.js'
 import {doc,setDoc} from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router";
-
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
 
@@ -94,7 +95,11 @@ const SignUp = () => {
         catch(e)
         {
             if(e.code=== "auth/email-already-in-use"){
-                alert("Email is already registered");
+              Swal.fire({
+                text: "Email is already registered",
+                showConfirmButton:false,
+                timer:1500
+              });
             }
             else{
                 console.log("Error Message",e);
@@ -259,8 +264,8 @@ const SignUp = () => {
               />
             </div>
             {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
-
             <br />
+            <p>Already have an account? <Link to="/">Sign In</Link></p>
             <div className="submit">
               <input type="submit" value="Sign Up" className="rounded px-27 py-1 bg-yellow-500" />
             </div>

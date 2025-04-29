@@ -38,7 +38,7 @@ root.render(
         <Route path='/contactus' element={<ContactUs/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/' element={<SignIn/>}/>
-        <Route path='/orders' element={<Order/>}/>
+        <Route path='/order' element={<Order/>}/>
       </Routes>
     </Router>
     </AuthProvider>

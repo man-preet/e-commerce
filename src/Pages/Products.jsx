@@ -12,17 +12,25 @@ const Products = () => {
   console.log(location);
   const queryParams=new URLSearchParams(location.search);
   const selectedCategory=queryParams.get('category');
-  
+  const searchQuery=queryParams.get('search');
+
   
 
   console.log(selectedCategory);
 
+  let filteredProducts=Product;
 
-
-  const filteredProducts = selectedCategory 
-  ? Product.filter((product) => product.category.toLowerCase() === selectedCategory.toLowerCase()) 
-  : Product;
-
+  if (selectedCategory) {
+    filteredProducts = filteredProducts.filter((product) =>
+      product.category.toLowerCase() === selectedCategory.toLowerCase()
+    );
+  }
+  
+  if (searchQuery) {
+    filteredProducts = filteredProducts.filter((product) =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }
 
   return (
         <>
@@ -34,7 +42,7 @@ const Products = () => {
 
 
               <div>
-                <ProductCard products={filteredProducts}/>
+                <ProductCard products={filteredProducts} />
               </div>
             </div>
             <Footer/>

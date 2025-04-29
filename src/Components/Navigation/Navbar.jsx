@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {auth } from '../../Firebase/Firebase';
 import { onAuthStateChanged ,signOut } from 'firebase/auth';
 // import '/Users/apple/Documents/Shopping Website/shopease/src/tailwind.config.js';
@@ -9,9 +9,16 @@ const Navbar = () => {
 
     const [cartCount,setCartCount]=useState(0);
     const [user,setUser]=useState(null);
+    const [searchText,setSearchText]= useState();
+    const navigate=useNavigate();
 
 
-
+  const handleSearch=(e)=>{
+    if(e.key==="Enter" && searchText.trim()){
+      navigate(`/all-products?search=${encodeURIComponent(searchText.trim())}`);
+      setSearchText("");
+        }
+  }
 
     useEffect(()=>{
       const storedItems=JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -46,10 +53,10 @@ const Navbar = () => {
                     <ul className="hidden md:flex justify-center gap-10 p-2 text-white font-bold ">
                         <li><Link to="/home">Home</Link></li>
                         <li><Link to="/all-products">Shop</Link></li>
-                        <li><Link to="/orders">Orders</Link></li>
+                        {/* <li><Link to="/order">Orders</Link></li> */}
                         <li><Link to="/about">AboutUs</Link></li>
                         <li><Link to="/contactus">Contact</Link></li>
-                        <li><input type="text" placeholder='Search...' className='outline-none'/></li>
+                        <li><input type="text" placeholder='Search...' className='outline-none' onChange={(e)=>setSearchText(e.target.value)} onKeyDown={handleSearch}/></li>
                     </ul>
                     <ul className="hidden md:flex justify-center gap-6 p-2 text-white font-bold ">
                         {
@@ -85,7 +92,7 @@ const Navbar = () => {
         <div className="md:hidden bg-blue-600 text-white font-bold px-6 py-4 space-y-3 sticky top-0 z-50">
           <Link to="/home" className="block flex gap-2"><i className="bi bi-house-door-fill"></i>Home</Link>
           <Link to="/all-products" className="block flex gap-2"><i className="bi bi-bag-fill"></i>Shop</Link>
-          <Link to="/" className="block flex gap-2"><i className="bi bi-boxes"></i>Orders</Link>
+          {/* <Link to="/order" className="block flex gap-2"><i className="bi bi-boxes"></i>Orders</Link> */}
           <Link to="/about" className="block flex gap-2"><i className="bi bi-file-person-fill"></i>About Us</Link>
           <Link to="/contactus" className="block flex gap-2"><i className="bi bi-person-lines-fill"></i>Contact</Link>
           {/* <Link to="/" className="block flex gap-2"><i className="bi bi-box-arrow-in-right mr-1"></i>Log In</Link> */}

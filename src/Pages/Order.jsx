@@ -10,10 +10,15 @@ const navigate=useNavigate();
 
 const {paymentStatus,orderData}= location.state || {};
 
-if (!orderData) {
-    navigate("/home"); // Redirect to home page if no order data is found
-    return null; // Prevent further rendering
+React.useEffect(() => {
+  if (!orderData) {
+    navigate("/order");
   }
+}, [orderData, navigate]);
+
+if (!orderData) return null;
+
+
 const { productName, price, image, brand, category, paymentId } = orderData;
 
 const handleCancelOrder=()=>{

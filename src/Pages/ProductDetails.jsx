@@ -4,6 +4,8 @@ import Navbar from "../Components/Navigation/Navbar";
 import Footer from "../Components/Navigation/Footer";
 import { useParams,useNavigate } from "react-router";
 import { auth } from "../Firebase/Firebase"; 
+import Swal from "sweetalert2";
+
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -33,7 +35,7 @@ const ProductDetails = () => {
       const user=auth.currentUser;
       if(!user)
         {
-          alert("Please Sign in to add products to cart");
+          Swal.fire("Please Sign In to see items in the cart");
           navigate("/");
           return;
 
@@ -59,7 +61,7 @@ const ProductDetails = () => {
         navigate('/add-to-cart')
       }
       else{
-        alert("This Item is already added to cart");
+        Swal.fire("This Item is already in cart.");
         
       }
     }

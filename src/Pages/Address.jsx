@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import  AuthContext from '../Context/AuthContext.jsx';
 import Navbar from '../Components/Navigation/Navbar.jsx'
 import Footer from '../Components/Navigation/Footer'
+import Swal from 'sweetalert2';
 // import {auth,db} from '../Firebase/Firebase.js'
 
 
@@ -52,11 +53,17 @@ const Address = () => {
     const handleSave=()=>{
       if(Object.values(newAddress).some((field)=>field.trim()===""))
         {
-          alert("Please Enter an Address");
+          Swal.fire("Please Enter an Address");
           return;
         }
       updateAddress(newAddress);
-      alert("Address updated Successfully");
+      Swal.fire({
+        icon: "success",
+        text:"Address updated Successfully",
+        timer:1500,
+        showConfirmButton:false
+      });
+      
 
     }
    
