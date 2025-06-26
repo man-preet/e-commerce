@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {auth } from '../../Firebase/Firebase';
 import { onAuthStateChanged ,signOut } from 'firebase/auth';
 // import '/Users/apple/Documents/Shopping Website/shopease/src/tailwind.config.js';
@@ -9,16 +9,16 @@ const Navbar = () => {
 
     const [cartCount,setCartCount]=useState(0);
     const [user,setUser]=useState(null);
-    const [searchText,setSearchText]= useState();
-    const navigate=useNavigate();
+    // const [searchText,setSearchText]= useState();
+    // const navigate=useNavigate();
 
 
-  const handleSearch=(e)=>{
-    if(e.key==="Enter" && searchText.trim()){
-      navigate(`/all-products?search=${encodeURIComponent(searchText.trim())}`);
-      setSearchText("");
-        }
-  }
+  // const handleSearch=(e)=>{
+  //   if(e.key==="Enter" && searchText.trim()){
+  //     navigate(`/all-products?search=${encodeURIComponent(searchText.trim())}`);
+  //     setSearchText("");
+  //       }
+  // }
 
     useEffect(()=>{
       const storedItems=JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -40,7 +40,7 @@ const Navbar = () => {
 
     <>
         <div className="navbar">
-                <div className=' flex justify-between bg-blue-500 h-20 p-4 sticky top-0 z-50 shadow-md border-t border-white'>
+                <div className=' flex justify-between bg-blue-500 h-20 p-4  z-50 shadow-md border-t border-white'>
                     <ul>
                         <li className="text-white text-3xl cursor-text "><Link to="/home">shopease</Link></li>
                     </ul>
@@ -56,14 +56,14 @@ const Navbar = () => {
                         {/* <li><Link to="/order">Orders</Link></li> */}
                         <li><Link to="/about">AboutUs</Link></li>
                         <li><Link to="/contactus">Contact</Link></li>
-                        <li><input type="text" placeholder='Search...' className='outline-none' onChange={(e)=>setSearchText(e.target.value)} onKeyDown={handleSearch}/></li>
+                        {/* <li><input type="text" placeholder='Search...' className='outline-none' onChange={(e)=>setSearchText(e.target.value)} onKeyDown={handleSearch}/></li> */}
                     </ul>
                     <ul className="hidden md:flex justify-center gap-6 p-2 text-white font-bold ">
                         {
                           user ? 
                           (
                             <>
-                               <li><Link><i className="bi bi-person-circle"></i> Profile</Link></li>
+                               {/* <li><Link><i className="bi bi-person-circle"></i> Profile</Link></li> */}
                                 <li><button onClick={handleLogOut}><i className="bi bi-box-arrow-right"></i> Logout</button></li>
                             </>
                           ):(

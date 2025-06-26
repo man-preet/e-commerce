@@ -67,6 +67,18 @@ const ProductDetails = () => {
     }
 
   const handleBuyNow=()=>{
+
+
+
+    const user=auth.currentUser;
+    if(!user)
+      {
+        Swal.fire("Please Sign In to buy your product ");
+        // navigate("/");
+        return;
+
+      }
+
     const orderData={price:product.price,productName:product.name,image:product.image,brand:product.brand,category:product.category};
     localStorage.setItem("orderData",JSON.stringify(orderData));
 

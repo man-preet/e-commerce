@@ -1,5 +1,5 @@
 import React from 'react'
-import Categories from '/Users/apple/Documents/Shopping Website/shopease/src/Data/Categories.js';
+import Categories from '../../Data/Categories.js';
 import { useNavigate } from 'react-router';
 
 const CategoryCard = () => {
