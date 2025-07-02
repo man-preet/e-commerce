@@ -113,165 +113,203 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="signup-body h-screen flex flex-col items-center justify-center">
-        <h1 className="text-3xl font-medium mb-5">SignUp</h1>
-        <div className="signup-form pt-5">
-          <form action="" onSubmit={handleSubmit}>
-            <div className="name">
-              <label htmlFor="name">Name:</label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                value={userFormData.name}
-                placeholder="Enter Your Name"
-                className="border rounded p-2 focus:outline-none"
-                onChange={handleChange}
-                autoComplete="none"
-              />
-            </div>
-            {errors.name&& <p className="text-red-500 text-sm">{errors.name}</p>}
-            <br />
-            <div className="email">
-              <label htmlFor="email">Email:</label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                value={userFormData.email}
-                placeholder="Enter Your email"
-                className="border rounded p-2 focus:outline-none"
-                onChange={handleChange}
-                autoComplete="none"
-              />
-            </div>
-            {errors.email&& <p className="text-red-500 text-sm">{errors.email}</p>}
-            <br />
-            <div className="gender">
-              <label htmlFor="gender">Gender:</label>
-              <input
-                type="radio"
-                name="gender"
-                id="male"
-                value="male"
-                checked={userFormData.gender === "male"}
-                className="border rounded p-2 focus:outline-none"
-                onChange={handleChange}
-                autoComplete="none"
-              />
-              Male
-              <input
-                type="radio"
-                name="gender"
-                id="female"
-                value="female"
-                checked={userFormData.gender==="female"}
-                className="border rounded p-2 focus:outline-none"
-                onChange={handleChange}
-                autoComplete="none"
-              />
-              female
-            </div>
-            {errors.gender&& <p className="text-red-500 text-sm">{errors.gender}</p>}
-            <br />
-            <div className="house">
-              <label htmlFor="house">House/Building:</label>
-              <input
-                type="text"
-                name="house"
-                id="house"
-                value={userFormData.house}
-                placeholder="Enter Your House no./Building"
-                className="border rounded p-2 focus:outline-none"
-                onChange={handleChange}
-                autoComplete="none"
-              />
-            </div>
-            {errors.house&& <p className="text-red-500 text-sm">{errors.house}</p>}
-            <br />
-            <div className="street">
-              <label htmlFor="street">Street/NearBy:</label>
-              <input
-                type="text"
-                name="street"
-                id="street"
-                value={userFormData.street}
-                placeholder="Enter Your Street/NearBy"
-                className="border rounded p-2 focus:outline-none"
-                onChange={handleChange}
-                autoComplete="none"
-              />
-            </div>
-            {errors.street&& <p className="text-red-500 text-sm">{errors.street}</p>}
-            <br />
-            <div className="state">
-              <label htmlFor="state">State:</label>
-              <input
-                type="text"
-                name="state"
-                id="state"
-                value={userFormData.state}
-                placeholder="Enter Your State"
-                className="border rounded p-2 focus:outline-none"
-                onChange={handleChange}
-                autoComplete="none"
-              />
-            </div>
-            {errors.state&& <p className="text-red-500 text-sm">{errors.state}</p>}
-            <br />
-            <div className="city">
-              <label htmlFor="city">City:</label>
-              <input
-                type="text"
-                name="city"
-                id="city"
-                value={userFormData.city}
-                placeholder="Enter Your City"
-                className="border rounded p-2 focus:outline-none"
-                onChange={handleChange}
-                autoComplete="none"
-              />
-            </div>
-            {errors.city&& <p className="text-red-500 text-sm">{errors.city}</p>}
-            <br />
+      <div className="signup-body min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4">
+      <h1 className="text-4xl font-semibold mb-8 text-gray-800">Sign Up</h1>
+      <div className="signup-form bg-white p-8 rounded-xl shadow-lg w-full max-w-lg">
+        <form onSubmit={handleSubmit}>
+          {/* Name */}
+          <div className="mb-4">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+              Name:
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              value={userFormData.name}
+              placeholder="Enter Your Name"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              onChange={handleChange}
+              autoComplete="off"
+            />
+            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+          </div>
 
-            <div className="pincode">
-              <label htmlFor="pincode">Pincode:</label>
-              <input
-                type="text"
-                name="pincode"
-                id="pincode"
-                value={userFormData.pincode}
-                placeholder="Enter Your Pincode"
-                className="border rounded p-2 focus:outline-none"
-                onChange={handleChange}
-                autoComplete="none"
-              />
+          {/* Email */}
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              Email:
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={userFormData.email}
+              placeholder="Enter Your Email"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              onChange={handleChange}
+              autoComplete="off"
+            />
+            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+          </div>
+
+          {/* Gender */}
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700 mb-1">Gender:</label>
+            <div className="flex items-center space-x-4">
+              <label className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="male"
+                  checked={userFormData.gender === "male"}
+                  onChange={handleChange}
+                  className="accent-yellow-500"
+                />
+                <span>Male</span>
+              </label>
+              <label className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="female"
+                  checked={userFormData.gender === "female"}
+                  onChange={handleChange}
+                  className="accent-yellow-500"
+                />
+                <span>Female</span>
+              </label>
             </div>
-            {errors.pincode&& <p className="text-red-500 text-sm">{errors.pincode}</p>}
-            <br />
-            <div className="password">
-              <label htmlFor="password">Password:</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                value={userFormData.password}
-                placeholder="Enter Your Password"
-                className="border rounded p-2 focus:outline-none"
-                onChange={handleChange}
-                autoComplete="none"
-              />
-            </div>
-            {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
-            <br />
-            <p>Already have an account? <Link to="/">Sign In</Link></p>
-            <div className="submit">
-              <input type="submit" value="Sign Up" className="rounded px-27 py-1 bg-yellow-500" />
-            </div>
-          </form>
-        </div>
+            {errors.gender && <p className="text-red-500 text-sm mt-1">{errors.gender}</p>}
+          </div>
+
+          {/* House */}
+          <div className="mb-4">
+            <label htmlFor="house" className="block text-sm font-medium text-gray-700 mb-1">
+              House/Building:
+            </label>
+            <input
+              type="text"
+              name="house"
+              id="house"
+              value={userFormData.house}
+              placeholder="Enter Your House no./Building"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              onChange={handleChange}
+              autoComplete="off"
+            />
+            {errors.house && <p className="text-red-500 text-sm mt-1">{errors.house}</p>}
+          </div>
+
+          {/* Street */}
+          <div className="mb-4">
+            <label htmlFor="street" className="block text-sm font-medium text-gray-700 mb-1">
+              Street/NearBy:
+            </label>
+            <input
+              type="text"
+              name="street"
+              id="street"
+              value={userFormData.street}
+              placeholder="Enter Your Street/NearBy"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              onChange={handleChange}
+              autoComplete="off"
+            />
+            {errors.street && <p className="text-red-500 text-sm mt-1">{errors.street}</p>}
+          </div>
+
+          {/* State */}
+          <div className="mb-4">
+            <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-1">
+              State:
+            </label>
+            <input
+              type="text"
+              name="state"
+              id="state"
+              value={userFormData.state}
+              placeholder="Enter Your State"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              onChange={handleChange}
+              autoComplete="off"
+            />
+            {errors.state && <p className="text-red-500 text-sm mt-1">{errors.state}</p>}
+          </div>
+
+          {/* City */}
+          <div className="mb-4">
+            <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">
+              City:
+            </label>
+            <input
+              type="text"
+              name="city"
+              id="city"
+              value={userFormData.city}
+              placeholder="Enter Your City"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              onChange={handleChange}
+              autoComplete="off"
+            />
+            {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city}</p>}
+          </div>
+
+          {/* Pincode */}
+          <div className="mb-4">
+            <label htmlFor="pincode" className="block text-sm font-medium text-gray-700 mb-1">
+              Pincode:
+            </label>
+            <input
+              type="text"
+              name="pincode"
+              id="pincode"
+              value={userFormData.pincode}
+              placeholder="Enter Your Pincode"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              onChange={handleChange}
+              autoComplete="off"
+            />
+            {errors.pincode && <p className="text-red-500 text-sm mt-1">{errors.pincode}</p>}
+          </div>
+
+          {/* Password */}
+          <div className="mb-4">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+              Password:
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              value={userFormData.password}
+              placeholder="Enter Your Password"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              onChange={handleChange}
+              autoComplete="off"
+            />
+            {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
+          </div>
+
+          {/* Submit */}
+          <div className="mt-6">
+            <input
+              type="submit"
+              value="Sign Up"
+              className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-2 px-4 rounded cursor-pointer transition duration-300"
+            />
+          </div>
+
+          {/* Already have account */}
+          <p className="text-sm mt-4 text-center">
+            Already have an account?
+            <Link to="/" className="text-yellow-600 font-medium hover:underline ml-1">
+              Sign In
+            </Link>
+          </p>
+        </form>
       </div>
+    </div>
     </>
   );
 };

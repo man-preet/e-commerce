@@ -69,7 +69,7 @@ import Swal from 'sweetalert2';
           icon: "success",
           draggable: true,
           showConfirmButton:false,
-          timer:1500
+          timer:1000
         });
 
         navigate("/home");
@@ -118,48 +118,65 @@ import Swal from 'sweetalert2';
 
    return (
     <>
-    <div className="signin h-screen flex flex-col items-center justify-center">
-    <h1 className="text-3xl font-medium mb-5">Sign In</h1>
-        <div className="signup-form pt-5">
-          <form action="" onSubmit={handleSubmit}>
+   <div className="signin min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4">
+      <h1 className="text-4xl font-semibold mb-8 text-gray-800">Sign In</h1>
 
-            <div className="email">
-              <label htmlFor="email">Email:</label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                value={signInFormData.email}
-                placeholder="Enter Your email"
-                className="border rounded p-2 focus:outline-none"
-                onChange={handleChange}
-                autoComplete="none"
-              />
-            </div>
-            {error.email && <p className='text-red-500 text-sm'>{error.email}</p>}
-            <br />
-            <div className="password">
-              <label htmlFor="password">Password:</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                value={signInFormData.password}
-                placeholder="Enter Your Password"
-                className="border rounded p-2 focus:outline-none"
-                onChange={handleChange}
-                autoComplete="none"
-              />
-            </div>
-            {error.password && <p className='text-red-500 text-sm'>{error.password}</p>}
-            
-            <br />
-            <p>If you don't have an account? <Link to="/signup" className='text-blue-400'>SignUp</Link></p>
-            <div className="submit">
-              <input type="submit" value="Sign In" className="rounded px-27 py-1 bg-yellow-500" />
-            </div>
-          </form>
-        </div>
+      <div className="signup-form bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+        <form onSubmit={handleSubmit}>
+          {/* Email */}
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              Email:
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={signInFormData.email}
+              placeholder="Enter Your Email"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              onChange={handleChange}
+              autoComplete="off"
+            />
+            {error.email && <p className="text-red-500 text-sm mt-1">{error.email}</p>}
+          </div>
+
+          {/* Password */}
+          <div className="mb-4">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+              Password:
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              value={signInFormData.password}
+              placeholder="Enter Your Password"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              onChange={handleChange}
+              autoComplete="off"
+            />
+            {error.password && <p className="text-red-500 text-sm mt-1">{error.password}</p>}
+          </div>
+
+          {/* Submit Button */}
+          <div className="mt-6">
+            <input
+              type="submit"
+              value="Sign In"
+              className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-2 px-4 rounded cursor-pointer transition duration-300"
+            />
+          </div>
+
+          {/* Sign Up Redirect */}
+          <p className="text-sm mt-4 text-center">
+            Don’t have an account?
+            <Link to="/signup" className="text-yellow-600 font-medium hover:underline ml-1">
+              Sign Up
+            </Link>
+          </p>
+        </form>
+      </div>
     </div>
     </>
    )
